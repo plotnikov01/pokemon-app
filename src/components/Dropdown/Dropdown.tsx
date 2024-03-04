@@ -40,11 +40,12 @@ export const Dropdown: React.FC<Props> = (props) => {
       </div>
       {isOpen && (
         <ul className="options">
-          {types.map((option) => (
-            <li key={option.name} onClick={() => handleOptionClick(option.name)}>
-              {option.name}
-            </li>
-          ))}
+          {types &&
+            types.map((option) => (
+              <li key={option.name} onClick={() => handleOptionClick(option.name)}>
+                {option.name}
+              </li>
+            ))}
         </ul>
       )}
     </div>

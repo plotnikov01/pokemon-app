@@ -7,6 +7,7 @@ export interface PokemonInterface {
   order: number;
   is_default: boolean;
   location_area_encounters: string;
+  url: string;
   sprites: {
     back_default: string | null;
     back_female: string | null;
@@ -85,6 +86,10 @@ export interface PokemonInterface {
       url: string;
     };
   }[];
+  pokemon: {
+    name: string;
+    url: string;
+  };
 }
 
 export interface PokemonType {
@@ -169,5 +174,6 @@ export interface PokemonData {
       url: string;
     };
   }>;
+  pokemon: Array<{ name: string; url: string }>;
   types: PokemonType[];
 }

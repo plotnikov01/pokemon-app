@@ -7,6 +7,10 @@ interface InitialStateProps {
   pokemonsList?: {
     count: number;
     results: PokemonInterface[];
+    pokemon: {
+      name: string;
+      url: string;
+    }[];
   };
   pokemonTypes?: {
     count: number;
@@ -20,6 +24,7 @@ const initialState: InitialStateProps = {
   pokemonsList: {
     count: 0,
     results: [],
+    pokemon: [],
   },
   pokemonTypes: {
     count: 0,

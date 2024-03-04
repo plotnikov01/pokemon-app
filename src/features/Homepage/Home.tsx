@@ -27,10 +27,10 @@ export const Home: React.FC = () => {
 
   const navigate = useNavigate();
 
-  const [currentPage, setCurrentPage] = useState<number | undefined>(
+  const [currentPage, setCurrentPage] = useState<number>(
     localStorage.getItem('currentPage')
       ? parseInt(localStorage.getItem('currentPage') || '0', 10)
-      : undefined,
+      : 0,
   );
   const [searchValue, setSearchValue] = useState<string | null>('');
 
@@ -40,7 +40,7 @@ export const Home: React.FC = () => {
     if (storedPage !== null) {
       setCurrentPage(parseInt(storedPage));
     }
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     fetchData();
@@ -69,7 +69,7 @@ export const Home: React.FC = () => {
     } else if (pokemonsList?.pokemon) {
       return (
         <>
-          {pokemonsList.pokemon.map((pokemon: PokemonInterface) => (
+          {pokemonsList.pokemon.map((pokemon: any) => (
             <Pokemon
               key={pokemon.pokemon.name}
               name={pokemon.pokemon.name}
@@ -96,6 +96,12 @@ export const Home: React.FC = () => {
     }
   };
 
+  const transformedTypes =
+    pokemonsTypes?.results.map((type) => ({
+      name: type.name,
+      url: type.url || '',
+    })) || [];
+
   return (
     <div className="home">
       <div className="home-filter">
@@ -105,7 +111,7 @@ export const Home: React.FC = () => {
           value={searchValue || ''}
           placeholder="Find Pokémon by name"
         />
-        <Dropdown types={pokemonsTypes?.results} />
+        <Dropdown types={transformedTypes} />
       </div>
       <div className="home-content">{renderPokemons()}</div>
       <div className="pagination">
