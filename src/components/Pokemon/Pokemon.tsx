@@ -19,7 +19,7 @@ export const Pokemon: React.FC<Props> = (props) => {
   }.png`;
 
   const openPokemonData = () => {
-    navigate(`${name}`);
+    navigate(`/${name}`);
   };
 
   return (

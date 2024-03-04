@@ -32,12 +32,19 @@ export const PokemonPage: React.FC = () => {
       }
     };
 
+    initialNavigate();
     fetchData();
   }, [name]);
 
   const navigateToTypes = (type: string) => {
     dispatch(setSelectedType(type));
     navigate('/');
+  };
+
+  const initialNavigate = () => {
+    if (name === 'pokemon-app') {
+      navigate('/');
+    }
   };
 
   const renderImages = () => {
