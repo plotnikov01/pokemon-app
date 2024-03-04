@@ -1,0 +1,38 @@
+@import "src/styles";
+
+.pagination {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+
+  &--num {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    border: 2px solid $color-primary-blue;
+    background-color: white;
+
+    @include mobile {
+      width: 30px;
+      height: 30px;
+      font-size: 14px;
+    }
+
+    &:hover {
+      background-color: $color-secondary-yellow;
+    }
+
+    &.active {
+      background-color: $color-primary-yellow;
+    }
+
+    img {
+      width: 15px;
+    }
+  }
+}

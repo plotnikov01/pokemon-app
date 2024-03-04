@@ -1,0 +1,24 @@
+@import "src/styles";
+
+.layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  padding-top: 100px;
+  background-image: url('../../assets/img/pokemon-background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+
+  &-content {
+    width: 100%;
+    max-width: 1240px;
+    height: 100%;
+    border-radius: 10px;
+    border: 5px solid $color-primary-yellow;
+    background-color: $color-primary-grey;
+  }
+}

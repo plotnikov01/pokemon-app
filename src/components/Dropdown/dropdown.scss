@@ -1,0 +1,39 @@
+@import "src/styles";
+
+.custom-dropdown {
+  position: relative;
+  width: 200px;
+  cursor: pointer;
+  border: 2px solid $color-primary-blue;
+
+
+  .selected {
+    padding: 0.5rem;
+    background-color: $color-white;
+  }
+
+  .options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border-radius: 0 0 4px 4px;
+    background-color: #fff;
+    list-style: none;
+    padding: 2px;
+    border: 2px solid $color-primary-blue;
+
+    li {
+      padding: 0.5rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #f0f0f0;
+      }
+    }
+  }
+
+  &.open .options {
+    display: block;
+  }
+}
